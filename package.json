@@ -1,0 +1,32 @@
+{
+  "name": "leaderboard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "leaderboard.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RagingRectangle/Leaderboard.git"
+  },
+  "author": "RagingRectangle",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RagingRectangle/Leaderboard/issues"
+  },
+  "homepage": "https://github.com/RagingRectangle/Leaderboard#readme",
+  "dependencies": {
+    "@discordjs/rest": "1.1.0",
+    "discord-api-types": "0.36.2",
+    "discord.js": "14.13.0",
+    "easy-table": "^1.2.0",
+    "fs": "0.0.1-security",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.1",
+    "moment-timezone": "^0.5.38",
+    "mysql2": "^2.3.3",
+    "node-schedule": "^2.1.1",
+    "quickchart-js": "^3.1.3"
+  }
+}
