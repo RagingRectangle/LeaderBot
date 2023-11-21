@@ -17,12 +17,6 @@ const Boards = require('./functions/boards.js');
 const Graphs = require('./functions/graphs.js');
 var trainerList = [];
 
-//Option check
-if (Object.keys(config.historyOptions).length > 25) {
-  console.log('ERROR: config.historyOptions can only contain a max of 25 options!');
-  process.exit();
-}
-
 //Board check
 if (!fs.existsSync('./config/boards.json')) {
   fs.writeFileSync('./config/boards.json', '{}');
@@ -73,29 +67,37 @@ client.on('interactionCreate', async interaction => {
   let user = interaction.member;
 
   //Add Options
-  if (interaction.customId.startsWith('leaderboard~addOption~')) {
+  if (interaction.customId.startsWith('leaderbot~addOption~')) {
     let newOption = interaction.values[0];
     if (newOption == 'finishLeaderboard') {
       Boards.addUpdateInterval(interaction);
     } else {
       Boards.addBoardOption(interaction, newOption);
     }
-  } //End of options
+  }
 
   //Verify Board
-  else if (interaction.customId == 'leaderboard~addInterval') {
+  else if (interaction.customId == 'leaderbot~addInterval') {
     Boards.verifyLeaderboard(interaction);
-  } //End of verify
+  }
 
   //Start Board
-  else if (interaction.customId == 'leaderboard~start') {
+  else if (interaction.customId == 'leaderbot~start') {
     Boards.startLeaderboard(client, interaction);
-  } //End of start
+  }
 
   //Cancel Board
-  else if (interaction.customId == 'leaderboard~cancel') {
+  else if (interaction.customId == 'leaderbot~cancel') {
     Boards.cancelLeaderboard(client, interaction);
-  } //End of start
+  }
+
+  //Change History Type
+  else if (interaction.customId.startsWith('leaderbot~change~')) {
+    await interaction.deferReply({
+      ephemeral: true
+    });
+    Graphs.createHistoryGraph(client, interaction, 'change');
+  }
 }); //End of buttons/lists
 
 
@@ -114,11 +116,6 @@ client.on('interactionCreate', async interaction => {
   }
   try {
     let slashReturn = await command.execute(client, interaction);
-    try {
-      if (slashReturn === 'delete') {
-        await interaction.deleteReply().catch(console.error);
-      }
-    } catch (err) {}
   } catch (error) {
     console.error(error);
     await interaction.reply({

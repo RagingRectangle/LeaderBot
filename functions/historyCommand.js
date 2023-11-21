@@ -3,6 +3,7 @@ var {
 } = require('discord.js');
 var fs = require('fs');
 var config = require('../config/config.json');
+var util = require('../util.json');
 var Graphs = require('../functions/graphs.js');
 
 module.exports = {
@@ -18,11 +19,11 @@ module.exports = {
       option.setName(config.historyTypeText.toLowerCase().replaceAll(/[^a-z0-9]/gi, '_'))
         .setDescription(config.historyTypeDescription)
         .setRequired(true)
-      for (const [key, value] of Object.entries(config.historyOptions)) {
+      for (const [key, value] of Object.entries(config.historyTypes)) {
         if (value != '') {
           option.addChoices({
             name: value,
-            value: key
+            value: util.historyTypes[key]
           });
         }
       } //End of option loop
@@ -56,6 +57,6 @@ module.exports = {
       })),
 
   async execute(client, interaction) {
-    Graphs.createHistoryGraph(client, interaction);
+    Graphs.createHistoryGraph(client, interaction, 'new');
   },
 };

@@ -1,7 +1,6 @@
 {
     "token": "",
-    "adminIDs": [""],
-    "slashGuildIDs": [""],
+    "adminIDs": [],
     "database": {
         "leaderboard": {
             "host": "",
@@ -45,6 +44,8 @@
     "firstPlace": "🥇",
     "secondPlace": "🥈",
     "thirdPlace": "🥉",
+    "leftAxis": "Left Axis",
+    "rightAxis": "Right Axis",
     "historyOptions": {
         "caught_pokemon": "Pokemon Caught",
         "pikachu_caught": "Pikachu Caught",
@@ -70,9 +71,7 @@
         "unique_mega_evos": "Unique Megas",
         "hatched": "Hatched",
         "trades": "Trades",
-        "trade_km": "Trade KM"
-    },
-    "unusedHistoryOptions": {
+        "trade_km": "Trade KM",
         "caught_at_lure": "Lure Catches",
         "gbl_rank": "Battle League Rank",
         "gbl_rating": "Battle League Rating",
@@ -80,6 +79,7 @@
         "trainings_won": "Trainer Battles Won",
         "wayfarer_agreements": "Wayfarer Agreements",
         "photobombs": "Photobombs",
+        "level": "Level",
         "best_friends": "Best Friends",
         "best_buddies": "Best Buddies",
         "purified": "Purified",
@@ -88,5 +88,31 @@
         "unique_raid_bosses": "Unique Raid Bosses",
         "raids_with_friends": "Raids With Friends",
         "raid_achievements": "Raid Achievements"
+    },
+    "historyTypes": {
+        "xp": "XP Gained",
+        "caught_total": "Pokemon Caught",
+        "caught_other": "XL Magikarp/XS Rattata/Pikachu",
+        "stops": "Pokestops Spun",
+        "km": "KM Walked",
+        "hatched": "Hatched",
+        "quests": "Quests Completed",
+        "evolved": "Evolved/Mega",
+        "trading": "Trades/KM",
+        "battles": "Battle/Gym/Trainer Wins",
+        "invasion": "Grunts/Giovanni Defeated",
+        "raid_wins": "Normal/Legendary Raid Wins",
+        "raid_other": "Raid Achievements/With Friends",
+        "gyms": "Hours Defended/Berries Fed",
+        "unique": "Unique Pokestops/Raids/Megas",
+        "besties": "Best Friends/Buddies",
+        "size": "Tiny/Jumbo Pokemon",
+        "league": "Great/Ultra/Master Wins",
+        "lure_catches": "Lure Catches",
+        "gbl": "GBL Rank/Rating",
+        "purified": "Purified",
+        "wayfarer": "Wayfarer Agreements",
+        "photobombs": "Photobombs",
+        "level": "Level"
     }
 }

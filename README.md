@@ -7,7 +7,7 @@ Join the Discord server for any help and to keep up with updates: https://discor
 
 
 ## Requirements
- - New Discord bot with token (If using an old bot that also uses /slash commands, those will be overridden)
+ - **New Discord bot with token** (If using an old bot that also uses /slash commands, those will be overridden)
  - [Golbat](https://github.com/UnownHash/Golbat)
  - [Leaderboard](https://github.com/na-ji/leaderboard)
  - Scanner that can provide necessary data
@@ -25,7 +25,6 @@ npm install
 ## Config Setup
 - **serverName:** Custom name for your server.
 - **adminIDs:** List of Discord user IDs that can execute all commands.
-- **slashGuildIDs:** List of guild IDs where commands should be registered.
 
 Database:
   - **leaderboard:** Info pointing towards leaderboard database.
@@ -52,31 +51,26 @@ Translations:
 - **dailyUserLimit:** Number of trainers to display in daily leaderboards.
 - **allTimeUserLimit:** Number of trainers to display in all-time leaderboards.
 - **first/second/thirdPlace:** Emojis used next to top trainers.
+- **left/rightAxis:** Text for axis names.
+
 
 HistoryOptions
-- With how the bot is currently written only 25 options will be able to be used at once.
-- LeaderBot V2 will handle this.
-- Swap whichever options you want between the `historyOptions` and `unusedHistoryOptions` sections.
+- How each option will be displayed in graph labels.
+
+historyTypes
+- How each type of graph will be displayed to users in the dropdown list.
 
 
 ## Usage
 - Using PM2: `pm2 start leaderbot --name LeaderBot`
-- Slash commands will be registered in the guilds listed above.
+- Slash commands will be registered globally and work in all channels as well as DMs.
 - You can use channel perms to limit the bot access or use the server integration settings to limit the bot to only certain channels.
-- The `createLeaderboardCommand` will walk you through how to create one of the types of boards.
+- The `createLeaderboardCommand` will walk you through how to create one of the types of boards. (Only admins and in servers)
 - The `trainerHistoryCommand` will allow anyone with access to the bot to create graphs of trainer stats.
-- History responses will only be visable to the command user.
 
 ## Notes
 - If you need to edit or delete a board you can do so by opening `./config/boards.json`.
 
-## V2 Thoughts
-- Global commands instead to also be available in DMs.
-- Config option to turn hidden repsonses on/off.
-- Rework the history commands to allow more than 25 options to pick from.
-- Rework the reply and add components to allow users to easily switch between types of history/timespan.
-- Combine some into a single option (wins for each league, normal/legendary raids, etc).
-
-## V3 Thoughts
+## Future Thoughts
 - Look into caching user data for a short period to avoid spamming the databse.
 - Multi-trainer graphs to compare.

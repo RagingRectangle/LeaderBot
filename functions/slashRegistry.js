@@ -25,15 +25,13 @@ module.exports = {
       commands.push(historyCommand.data.toJSON());
       client.commands.set(historyCommand.data.name, historyCommand);
 
-      for (const guildID of config.slashGuildIDs) {
-         const rest = new REST({
-            version: '10'
-         }).setToken(config.token);
-         rest.put(Routes.applicationGuildCommands(client.user.id, guildID), {
-               body: commands
-            })
-            .then(() => console.log(`Registered slash commands for guild: ${guildID}`))
-            .catch(console.error);
-      } //End of guildID
+      const rest = new REST({
+         version: '10'
+      }).setToken(config.token);
+      rest.put(Routes.applicationCommands(client.user.id), {
+            body: commands
+         })
+         .then(() => console.log(`Registered slash commands`))
+         .catch(console.error);
    } //End of registerCommands()
 }

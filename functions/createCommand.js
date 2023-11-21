@@ -23,13 +23,24 @@ module.exports = {
       .setDescription('Create total daily board')),
 
   async execute(client, interaction) {
-    let channel = await client.channels.fetch(interaction.channelId).catch(console.error);
-    //let guild = await client.guilds.fetch(interaction.guildId).catch(console.error);
     if (config.adminIDs.includes(interaction.user.id)) {
+      if (interaction.guildId == null){
+        interaction.reply({
+          content: `Leaderboards not allowed in DMs.`,
+          ephemeral: true
+        }).catch(console.error);
+        return;
+      }
       if (!config.database.leaderboard.host) {
-        channel.send(`Leaderboard config not filled out.`).catch(console.error);
+        interaction.reply({
+          content: `Leaderboard config not filled out.`,
+          ephemeral: true
+        }).catch(console.error);
       } else if (!config.database.golbat.host) {
-        channel.send(`Golbat config not filled out.`).catch(console.error);
+        interaction.reply({
+          content: `Golbat config not filled out.`,
+          ephemeral: true
+        }).catch(console.error);
       } else if (interaction.options.getSubcommand() === 'all_time') {
         Boards.createNewLeaderboard(interaction, 'all_time', 'new');
       } else if (interaction.options.getSubcommand() === 'daily') {

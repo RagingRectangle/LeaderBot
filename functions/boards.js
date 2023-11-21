@@ -21,20 +21,20 @@ module.exports = {
     });
     var leaderOptions = [];
     //Pokemon Options
-    leaderOptions.push(new ActionRowBuilder().addComponents(new StringSelectMenuBuilder().setPlaceholder('Select Pokemon Options').setCustomId(`leaderboard~addOption~addPokemon`).addOptions(util.options.pokemonOptions)));
+    leaderOptions.push(new ActionRowBuilder().addComponents(new StringSelectMenuBuilder().setPlaceholder('Select Pokemon Options').setCustomId(`leaderbot~addOption~addPokemon`).addOptions(util.options.pokemonOptions)));
     //Pokestop Options
-    leaderOptions.push(new ActionRowBuilder().addComponents(new StringSelectMenuBuilder().setPlaceholder('Select Pokestop Options').setCustomId(`leaderboard~addOption~addPokestop`).addOptions(util.options.pokestopOptions)));
+    leaderOptions.push(new ActionRowBuilder().addComponents(new StringSelectMenuBuilder().setPlaceholder('Select Pokestop Options').setCustomId(`leaderbot~addOption~addPokestop`).addOptions(util.options.pokestopOptions)));
     //Gym/Raid Options
-    leaderOptions.push(new ActionRowBuilder().addComponents(new StringSelectMenuBuilder().setPlaceholder('Select Gym/Raid Options').setCustomId(`leaderboard~addOption~addGymRaid`).addOptions(util.options.gymRaidOptions)));
+    leaderOptions.push(new ActionRowBuilder().addComponents(new StringSelectMenuBuilder().setPlaceholder('Select Gym/Raid Options').setCustomId(`leaderbot~addOption~addGymRaid`).addOptions(util.options.gymRaidOptions)));
     //Battle Options
-    leaderOptions.push(new ActionRowBuilder().addComponents(new StringSelectMenuBuilder().setPlaceholder('Select Battle Options').setCustomId(`leaderboard~addOption~addBattle`).addOptions(util.options.battleOptions)));
+    leaderOptions.push(new ActionRowBuilder().addComponents(new StringSelectMenuBuilder().setPlaceholder('Select Battle Options').setCustomId(`leaderbot~addOption~addBattle`).addOptions(util.options.battleOptions)));
     //Other Options
     var leaderOptionList = util.options.otherOptions;
     if (type == 'total') {
       leaderOptionList.pop();
       leaderOptionList = leaderOptionList.concat(util.options.otherTotalOptions);
     }
-    leaderOptions.push(new ActionRowBuilder().addComponents(new StringSelectMenuBuilder().setPlaceholder('Select Other Options').setCustomId(`leaderboard~addOption~addOther`).addOptions(leaderOptionList)));
+    leaderOptions.push(new ActionRowBuilder().addComponents(new StringSelectMenuBuilder().setPlaceholder('Select Other Options').setCustomId(`leaderbot~addOption~addOther`).addOptions(leaderOptionList)));
     await interaction.reply({
       content: `- Select options in the order you want them to appear.\n- Select 'Finish Leaderboard' in Other Options menu when done.`,
       embeds: [leaderEmbed],
@@ -78,7 +78,7 @@ module.exports = {
     }
     await interaction.update({
       content: ``,
-      components: [new ActionRowBuilder().addComponents(new StringSelectMenuBuilder().setPlaceholder('Select Update Interval').setCustomId(`leaderboard~addInterval`).addOptions(util.options.updateIntervals))],
+      components: [new ActionRowBuilder().addComponents(new StringSelectMenuBuilder().setPlaceholder('Select Update Interval').setCustomId(`leaderbot~addInterval`).addOptions(util.options.updateIntervals))],
       ephemeral: true
     }).catch(console.error);
   }, //End of addUpdateInterval()
@@ -95,7 +95,7 @@ module.exports = {
     await interaction.update({
       content: ``,
       embeds: [newEmbed],
-      components: [new ActionRowBuilder().addComponents(new ButtonBuilder().setLabel('Start').setCustomId(`leaderboard~start`).setStyle(ButtonStyle.Success), new ButtonBuilder().setLabel('Cancel').setCustomId(`leaderboard~cancel`).setStyle(ButtonStyle.Danger))],
+      components: [new ActionRowBuilder().addComponents(new ButtonBuilder().setLabel('Start').setCustomId(`leaderbot~start`).setStyle(ButtonStyle.Success), new ButtonBuilder().setLabel('Cancel').setCustomId(`leaderbot~cancel`).setStyle(ButtonStyle.Danger))],
       ephemeral: true
     }).catch(console.error);
   }, //End of verifyLeaderboard()
