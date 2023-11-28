@@ -54,7 +54,12 @@ module.exports = {
       }, {
         name: config.everything,
         value: '9999'
-      })),
+      }))
+    .addStringOption(option =>
+      option.setName(config.compareText.toLowerCase().replaceAll(/[^a-z0-9]/gi, '_'))
+      .setDescription(config.compareDescription)
+      .setRequired(false)
+      .setAutocomplete(true)),
 
   async execute(client, interaction) {
     Graphs.createHistoryGraph(client, interaction, 'new');

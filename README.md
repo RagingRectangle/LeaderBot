@@ -40,7 +40,9 @@ Translations:
 - **historyTypeText:** Command name for selecting which type of history data.
 - **historyTypeDescription:** Short description for type option.
 - **timespanText:** Command name for selecting how long to look back.
-- **timespanDescription:** Short description for timespan option
+- **timespanDescription:** Short description for timespan option.
+- **compareText:** Optional command name for comparing stats to another trainer.
+- **compareDescription:** Short description for compare option.
 - **historyAxisFormat:** How to display axis dates [Format help](https://momentjs.com/docs/#/displaying/format/)
 - **footerDateFormat:** How to display date in footers. [Format help](https://momentjs.com/docs/#/displaying/format/)
 - **footerTimeFormat:** How to display time in footers. [Format help](https://momentjs.com/docs/#/displaying/format/)
@@ -52,6 +54,8 @@ Translations:
 - **allTimeUserLimit:** Number of trainers to display in all-time leaderboards.
 - **first/second/thirdPlace:** Emojis used next to top trainers.
 - **left/rightAxis:** Text for axis names.
+- **solid/dotted:** Line type descriptions.
+
 
 
 HistoryOptions

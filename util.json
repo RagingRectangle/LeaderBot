@@ -213,7 +213,7 @@
       "playersIncluded": "select count(a.friendship_id) as value from {{golbatDB}}.player a, {{leaderboardDB}}.pogo_leaderboard_trainer_history b where a.name=b.name and b.date = curdate() - interval 1 day and b.rpl = 1440;",
       "newPlayersToday": "select count(a.friendship_id) as value from {{golbatDB}}.player a where a.name not in (select b.name from {{leaderboardDB}}.pogo_leaderboard_trainer_history b where b.date = curdate() - interval 1 day and b.rpl = 1440);",
       "nameList": "select name from pogo_leaderboard_trainer_history group by name asc;",
-      "playerHistory": "select date, team, {{type}} from pogo_leaderboard_trainer_history where name = '{{name}}' order by date desc limit {{limit}};"
+      "trainerHistory": "select date, team, {{type}} from pogo_leaderboard_trainer_history where name = '{{name}}' order by date desc limit {{limit}};"
    },
    "historyTypes": {
       "xp": "xp",

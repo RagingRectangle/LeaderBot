@@ -129,16 +129,17 @@ client.on('interactionCreate', async interaction => {
 //AutoComplete
 client.on('interactionCreate', async interaction => {
   if (!interaction.isAutocomplete()) return;
-  //Check if 'trainer'
-  if (interaction.options._hoistedOptions[0]['name'] != config.trainerText.toLowerCase().replaceAll(/[^a-z0-9]/gi, '_')) return;
-  let focusedValue = interaction.options.getFocused().toLowerCase();
-  let filteredList = Object.values(trainerList).filter(choice => choice.toLowerCase().includes(focusedValue)).slice(0, 25);
-  await interaction.respond(
-    filteredList.map(choice => ({
-      name: choice,
-      value: choice
-    }))
-  ).catch(console.error);
+  //Check if trainer/compare
+  if (interaction.options._hoistedOptions[0]['name'] == config.trainerText.toLowerCase().replaceAll(/[^a-z0-9]/gi, '_') || interaction.options._hoistedOptions[interaction.options._hoistedOptions.length - 1]['name'] == config.compareText.toLowerCase().replaceAll(/[^a-z0-9]/gi, '_')) {
+    let focusedValue = interaction.options.getFocused().toLowerCase();
+    let filteredList = Object.values(trainerList).filter(choice => choice.toLowerCase().includes(focusedValue)).slice(0, 25);
+    await interaction.respond(
+      filteredList.map(choice => ({
+        name: choice,
+        value: choice
+      }))
+    ).catch(console.error);
+  }
 }); //End of AutoComplete
 
 client.on("error", (e) => console.error(e));
