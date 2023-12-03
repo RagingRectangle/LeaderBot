@@ -119,6 +119,7 @@ module.exports = {
     var boardData = {};
     boardData.type = boardType;
     boardData.channelID = interaction.message.channel.id;
+    boardData.server = interaction.member.guild.name;
     boardData.title = boardTitle;
     boardData.options = interaction.message.embeds[0]['fields'][1]['value'].split('\n');
     boardData.updateInterval = `*/${intervalMinutes} * * * *`;
